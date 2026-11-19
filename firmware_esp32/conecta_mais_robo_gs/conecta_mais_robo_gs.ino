@@ -40,6 +40,15 @@ const unsigned long TEMPO_SEGURANCA = 700;
 String ultimoDiagnosticoIA = "IA: aguardando classificação";
 String ultimoAlertaSeguranca = "Seguro: nenhum alerta ativo";
 
+struct ResultadoIA {
+  String rotulo;
+  float confianca;
+  String resumo;
+};
+
+ResultadoIA executarInferencia();
+void aplicarDecisaoAutonoma(const ResultadoIA &ia);
+
 String pagina = R"rawliteral(
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -273,12 +282,6 @@ static int raw_feature_get_data(size_t offset, size_t length, float *out_ptr) {
   return 0;
 }
 
-struct ResultadoIA {
-  String rotulo;
-  float confianca;
-  String resumo;
-};
-
 ResultadoIA executarInferencia() {
   ResultadoIA saida = {"sem_leitura", 0.0f, "Erro ao coletar dados"};
 
@@ -366,7 +369,6 @@ void aplicarDecisaoAutonoma(const ResultadoIA &ia) {
     sensorServo.write(90);
     ultimoAlertaSeguranca = "Obstáculo em distância média: atenção no trajeto";
   } else {
-    // Caminho livre
     direita();
     delay(180);
     pararMotores();

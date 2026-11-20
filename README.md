@@ -24,5 +24,5 @@ Evolução do carrinho-robô WALL-E (ESP32 + HC-SR04 + Servo SG90 + Ponte H L298
 3. Conecte-se à rede Wi-Fi `WALL-E` e acesse `http://192.168.4.1`.
 4. Use o modo manual, o botão **Classificar (IA)** ou o **Modo Autônomo (IA)** e acompanhe os logs no Serial Monitor (`115200` baud).
 
-## Vídeo Demonstrativo (até 6 min)
-- Link do vídeo: [Inserir link do YouTube ou Drive]
+## Vídeo Demonstrativo
+- Link do vídeo: [https://drive.google.com/file/d/1zaX0Qg_zC2uNCv0Sr7_b083ZU6TfM-sH/view?usp=sharing]
